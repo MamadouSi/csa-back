@@ -1,5 +1,5 @@
 # Utilisez l'image adoptopenjdk avec Java 17 comme base
-FROM adoptopenjdk:17-jdk-hotspot AS builder
+FROM adoptopenjdk:17-jre-hotspot AS builder
 
 # Répertoire de travail dans le conteneur
 WORKDIR /app
