@@ -8,6 +8,9 @@ WORKDIR /app
 COPY build.gradle settings.gradle ./
 COPY src ./src
 
+# Ajout des permissions d'exécution au wrapper Gradle
+RUN chmod +x gradlew
+
 # Construction de l'application
 RUN ./gradlew build
 
