@@ -8,11 +8,15 @@ WORKDIR /app
 COPY build.gradle settings.gradle ./
 COPY src ./src
 
+# Copie du wrapper Gradle dans le répertoire de travail
+COPY gradlew .
+COPY gradle ./gradle
+
+# Donne des permissions d'exécution au wrapper Gradle
+RUN chmod +x gradlew
+
 # Construction de l'application
 RUN ./gradlew build
-
-# Utilisation d'une image OpenJDK plus légère pour l'exécution
-FROM openjdk:17
 
 # Répertoire de travail dans le conteneur
 WORKDIR /app
