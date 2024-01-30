@@ -4,9 +4,8 @@ FROM openjdk:17
 # Répertoire de travail dans le conteneur
 WORKDIR /app
 
-# Copie des fichiers Gradle et des sources de l'application
-COPY build.gradle settings.gradle ./
-COPY src ./src
+# Copie de l'ensemble du contenu du répertoire de travail
+COPY . .
 
 # Ajout des permissions d'exécution au wrapper Gradle
 RUN chmod +x gradlew
