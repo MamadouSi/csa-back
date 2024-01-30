@@ -1,5 +1,5 @@
 # Utilisez l'image adoptopenjdk avec Java 17 comme base
-FROM adoptopenjdk:17-jre-hotspot AS builder
+FROM adoptopenjdk:17 AS builder
 
 # Répertoire de travail dans le conteneur
 WORKDIR /app
@@ -12,7 +12,7 @@ COPY src ./src
 RUN ./gradlew build
 
 # Utilisation d'une image plus légère pour l'exécution
-FROM adoptopenjdk:17-jre-hotspot
+FROM adoptopenjdk:17
 
 # Répertoire de travail dans le conteneur
 WORKDIR /app
