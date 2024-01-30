@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,19 +25,9 @@ jobs:
       - name: Construction de l'application Spring Boot
         run: ./gradlew build --no-daemon
 
-  build-docker:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Construction de l'image Docker
         run: docker build -t siyourself/csa-backend:latest .
 
-  push:
-    needs: build-docker
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Connexion à Docker Hub
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
 
