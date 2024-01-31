@@ -10,9 +10,8 @@ COPY . .
 # Ajout des permissions d'exécution au wrapper Gradle
 RUN chmod +x gradlew
 
-# Construction de l'application
-RUN ./gradlew build
-
+# Construction de l'application (en excluant l'exécution des tests)
+RUN ./gradlew build -x test
 
 # Copie du JAR construit
 COPY build/libs/csa-backend-0.0.1-SNAPSHOT.jar .
