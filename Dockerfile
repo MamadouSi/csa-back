@@ -8,10 +8,10 @@ WORKDIR /app
 COPY . .
 
 # Ajout des permissions d'exécution au wrapper Gradle
-#RUN chmod +x gradlew
+RUN chmod +x gradlew
 
 # Construction de l'application
-#RUN ./gradlew build
+RUN ./gradlew build
 
 
 # Copie du JAR construit
