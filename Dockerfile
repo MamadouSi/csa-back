@@ -1,5 +1,5 @@
 # Utilisez l'image OpenJDK avec Java 17 comme base
-FROM openjdk:17
+FROM eclipse-temurin:17-alpine
 
 # Répertoire de travail dans le conteneur
 WORKDIR /app
