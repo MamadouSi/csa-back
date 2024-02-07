@@ -1,6 +1,7 @@
 package csaback.csabackend.controller;
 
 
+import csaback.csabackend.modele.Etudiant;
 import csaback.csabackend.modele.User;
 import csaback.csabackend.service.user.UserService;
 import lombok.AllArgsConstructor;
@@ -16,7 +17,15 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
 
-   @GetMapping("/read")
+
+
+    @PostMapping("/create")
+    public User create (@RequestBody User user){
+        return userService.creer(user);
+    }
+
+
+    @GetMapping("/read")
     public List<User> read (){return userService.lire();};
 
     @PostMapping("/login")

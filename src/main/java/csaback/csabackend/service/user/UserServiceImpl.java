@@ -19,6 +19,12 @@ public class UserServiceImpl implements UserService{
     private  final UserRepository userRepository;
 
     private JdbcTemplate jdbcTemplate;
+
+    @Override
+    public User creer(User user) {
+        return userRepository.save(user);
+    }
+
     @Override
     public List<User> lire() {
         return userRepository.findAll();
