@@ -1,6 +1,6 @@
-Documentation du projet CSA Frontend
+Documentation du projet CSA Backend
 Description
-Le projet csa-frontend est une application frontend développée pour interagir avec le backend du système de gestion des étudiants (CSA). Il permet aux utilisateurs de visualiser, d'ajouter, de modifier et de supprimer des données relatives aux étudiants, aux formations, aux promotions, etc.
+Le projet csa-backend est une application backend développée pour gérer les données des étudiants, des formations, des promotions, etc., dans le système de gestion des étudiants (CSA). Il fournit des API RESTful pour interagir avec la base de données et répondre aux demandes provenant du frontend.
 
 Installation
 Pour installer et exécuter l'application localement, suivez ces étapes :
@@ -14,7 +14,11 @@ Accéder au répertoire du projet :
 
 bash
 Copy code
-cd csa-frontend
+cd csa-backend
+Configurer la base de données :
+
+Créer une base de données MySQL.
+Modifier les informations de connexion dans le fichier config/db.config.js.
 Installer les dépendances :
 
 Copy code
@@ -24,41 +28,76 @@ Lancer l'application :
 sql
 Copy code
 npm start
-L'application sera accessible à l'adresse http://localhost:3000.
+L'application sera accessible à l'adresse http://localhost:8081.
 
 Fonctionnalités
-Affichage de la liste des étudiants avec leurs détails.
-Ajout, modification et suppression d'étudiants.
-Affichage de la liste des formations et des promotions.
-Gestion des utilisateurs et des rôles.
+Gestion des étudiants : CRUD (Create, Read, Update, Delete) des informations des étudiants.
+Gestion des formations : CRUD des informations sur les formations disponibles.
+Gestion des promotions : CRUD des informations sur les promotions en cours.
+Authentification des utilisateurs avec JWT (JSON Web Tokens).
+Autorisation des utilisateurs basée sur les rôles (administrateur, étudiant, etc.).
+Validation des données entrantes avec Joi.
+Endpoints API
+Les principaux endpoints de l'API sont les suivants :
+
+GET /api/etudiant/read : Récupère la liste des étudiants.
+POST /api/etudiant/create : Crée un nouvel étudiant.
+PUT /api/etudiant/update/:id : Met à jour les informations d'un étudiant.
+DELETE /api/etudiant/delete/:id : Supprime un étudiant.
+GET /api/formation/read : Récupère la liste des formations.
+POST /api/formation/create : Crée une nouvelle formation.
+PUT /api/formation/update/:id : Met à jour les informations d'une formation.
+DELETE /api/formation/delete/:id : Supprime une formation.
+GET /api/promotion/read : Récupère la liste des promotions.
+POST /api/promotion/create : Crée une nouvelle promotion.
+PUT /api/promotion/update/:id : Met à jour les informations d'une promotion.
+DELETE /api/promotion/delete/:id : Supprime une promotion.
+POST /api/user/login : Authentifie un utilisateur et renvoie un token JWT.
 Technologies utilisées
-React.js : Framework frontend JavaScript
-Axios : Bibliothèque HTTP pour effectuer des requêtes AJAX
-React Router : Gestion des routes dans l'application React
-Material-UI : Bibliothèque de composants React pour une interface utilisateur stylisée
-Context API : Gestion de l'état global de l'application
-ESLint : Linter JavaScript pour maintenir la qualité du code
+Node.js : Environnement d'exécution JavaScript côté serveur
+Express.js : Framework Web pour Node.js
+MySQL : Système de gestion de base de données relationnelle
+JWT (JSON Web Tokens) : Méthode d'authentification sécurisée
+Joi : Bibliothèque de validation de données pour Node.js
+Sequelize : ORM (Object-Relational Mapping) pour Node.js
 Structure du projet
-```java
-csa-frontend/
+```lua
+csa-backend/
 │
-├── public/
-│   ├── index.html
-│   └── ...
+├── config/
+│   └── db.config.js
 │
-├── src/
-│   ├── components/
-│   │   ├── LoginForm.js
-│   │   ├── EtudiantListe.js
-│   │   └── ...
-│   ├── Api/
-│   │   ├── AuthContext.js
-│   │   ├── axiosConfig.js
-│   │   └── ...
-│   ├── App.js
-│   └── index.js
+├── controllers/
+│   ├── etudiant.controller.js
+│   ├── formation.controller.js
+│   ├── promotion.controller.js
+│   └── user.controller.js
 │
+├── middleware/
+│   └── authJwt.js
+│
+├── models/
+│   ├── Etudiant.js
+│   ├── Formation.js
+│   ├── Promotion.js
+│   └── User.js
+│
+├── routes/
+│   ├── etudiant.routes.js
+│   ├── formation.routes.js
+│   ├── promotion.routes.js
+│   └── auth.routes.js
+│
+├── services/
+│   ├── authService.js
+│   ├── etudiantService.js
+│   ├── formationService.js
+│   └── promotionService.js
+│
+├── utils/
+│   └── verifySignUp.js
+│
+├── app.js
 ├── package.json
-├── README.md
-└── ...
+└── README.md
 ```
