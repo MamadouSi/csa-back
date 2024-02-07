@@ -58,43 +58,63 @@ Les principaux endpoints de l'API sont les suivants :
 - Sequelize : ORM (Object-Relational Mapping) pour Node.js
 
 ## Structure du projet
-```lua
+```
 csa-backend/
-│
-├── config/
-│ └── db.config.js
-│
-├── controllers/
-│ ├── etudiant.controller.js
-│ ├── formation.controller.js
-│ ├── promotion.controller.js
-│ └── user.controller.js
-│
-├── middleware/
-│ └── authJwt.js
-│
-├── models/
-│ ├── Etudiant.js
-│ ├── Formation.js
-│ ├── Promotion.js
-│ └── User.js
-│
-├── routes/
-│ ├── etudiant.routes.js
-│ ├── formation.routes.js
-│ ├── promotion.routes.js
-│ └── auth.routes.js
-│
-├── services/
-│ ├── authService.js
-│ ├── etudiantService.js
-│ ├── formationService.js
-│ └── promotionService.js
-│
-├── utils/
-│ └── verifySignUp.js
-│
-├── app.js
-├── package.json
-└── README.md
++---build
+|   +---classes
+|   |   \---java
+|   |       +---main
+|   |       |   \---csaback
+|   |       |       \---csabackend
+|   |       |           |   CsaBackendApplication.class
+|   |       |           |
+|   |       |           +---config
+|   |       |           |       CorsConfig$1.class
+|   |       |           |       CorsConfig.class
+|   |       |           |
+|   |       |           +---controller
+|   |       |           |       EtudiantController.class
+|   |       |           |       FormationController.class
+|   |       |           |       PormotionController.class
+|   |       |           |       UserController.class
+|   |       |           |
+|   |       |           +---modele
+|   |       |           |       Enseignant.class
+|   |       |           |       Etudiant.class
+|   |       |           |       Formation.class
+|   |       |           |       Promotion.class
+|   |       |           |       User.class
+|   |       |           |
+|   |       |           +---repository
+|   |       |           |       EtudiantRepository.class
+|   |       |           |       FormationRepository.class
+|   |       |           |       PromotionRepository.class
+|   |       |           |       UserRepository.class
+|   |       |           |
+|   |       |           \---service
+|   |       |               +---etudiant
+|   |       |               |       EtudiantService.class
+|   |       |               |       EtudiantServiceImpl.class
+|   |       |               |
+|   |       |               +---formation
+|   |       |               |       FormationService.class
+|   |       |               |       FormationServiceImpl.class
+|   |       |               |
+|   |       |               +---promotion
+|   |       |               |       PromotionService.class
+|   |       |               |       PromotionServiceImpl.class
+|   |       |               |
+|   |       |               \---user
+|   |       |                       UserService.class
+|   |       |                       UserServiceImpl.class
+|   |       |
+|   |       \---test
+|   |           \---csaback
+|   |               \---csabackend
+|   |                   |   EtudiantServiceImplTest.class
+|   |                   |
+|   |                   \---service
+|   |                       \---etudiant
+|   |                               EtudiantServiceImplTest.class
+
 ```
